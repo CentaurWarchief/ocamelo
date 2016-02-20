@@ -7,7 +7,13 @@ let remove_diacritics str =
     ("i", ["í"; "ì"; "î"]);
     ("o", ["ó"; "ò"; "ô"]);
     ("u", ["ú"; "ù"]);
-    ("ñ", ["n"])
+    ("n", ["ñ"]);
+    ("A", ["Ã"; "Á"; "À"; "Â"]);
+    ("E", ["É"; "È"; "Ê"]);
+    ("I", ["Í"; "Ì"; "Î"]);
+    ("O", ["Ó"; "Ò"; "Ô"]);
+    ("U", ["Ú"; "Ù"]);
+    ("N", ["Ñ"])
   ] in
   let rec replace str replacement characters = match characters with
     | [] -> str
@@ -25,9 +31,4 @@ let remove_diacritics str =
         remove (replace str replacement characters) t
       in
   remove str table
-  ;;
-
-let () =
-  print_string (remove_diacritics "Olá, como você vai?");
-  print_string "\n"
   ;;
